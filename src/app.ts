@@ -19,7 +19,17 @@ const app = express();
 
 app.use(express.json());
 // enabling CORS
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:5122",
+    "http://localhost:5124",
+    "https://tafesatcfamily.vercel.app",
+    "https://fmstafesatc.vercel.app"
+  ],
+  credentials: true
+}));
+
+app.options('*', cors());
 
 // testing the server
 app.get("/ping", (req: Request, res: Response) => {
