@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-// import cors from "cors";
+import cors from "cors";
 
 
 
@@ -19,7 +19,7 @@ const app = express();
 
 app.use(express.json());
 // enabling CORS
-// app.use(cors());
+app.use(cors());
 
 // testing the server
 app.get("/ping", (req: Request, res: Response) => {
