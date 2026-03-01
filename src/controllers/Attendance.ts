@@ -3,6 +3,7 @@ import { CreateResponse } from '../util/response';
 import Attendance from '../models/Attendance';
 import { AuthRequest } from '../middleware/auth';
 import User from '../models/User';
+import { Schema } from 'mongoose';
 
 export const createAttendance = async (req: AuthRequest, res: Response): Promise<any> => {
     try {
@@ -158,8 +159,9 @@ export const getAttendanceRange = async (req: Request, res: Response): Promise<a
             return res.status(400).json(CreateResponse(false, null, "familyId is required"));
         }
 
-        const firstRecord = await Attendance.findOne({ family_id: familyId }).sort({ date: 1 });
-        const lastRecord = await Attendance.findOne({ family_id: familyId }).sort({ date: -1 });
+        const familyObjectId = new Schema.Types.ObjectId(familyId as string);
+        const firstRecord = await Attendance.findOne({ family_id: familyObjectId }).sort({ date: 1 });
+        const lastRecord = await Attendance.findOne({ family_id: familyObjectId }).sort({ date: -1 });
 
         return res.json(CreateResponse(true, {
             minDate: firstRecord ? firstRecord.date : null,

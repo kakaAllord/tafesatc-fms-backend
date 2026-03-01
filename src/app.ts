@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import cors from "cors";
 
 
@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(cors());
 
 // testing the server
-app.get("/ping", (req, res) => {
+app.get("/ping", (req: Request, res: Response) => {
     res.send("pong");
 });
 
