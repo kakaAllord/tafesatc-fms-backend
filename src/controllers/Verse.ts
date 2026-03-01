@@ -10,14 +10,12 @@ export const getRandomVerse = async (req: Request, res: Response): Promise<any> 
         const reference = VERSE_REFERENCES[randomIndex];
 
 
-        console.log("Pinged: ",` https://bible-api.com/${encodeURIComponent(reference)}`);
 
         // 2. Call Bible API
         const response = await axios.get(
             `https://bible-api.com/${encodeURIComponent(reference)}`
         );
 
-        console.log("Response: ", response);
 
         const verseData = response.data;
 
