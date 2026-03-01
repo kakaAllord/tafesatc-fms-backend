@@ -6,7 +6,6 @@ const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret_do_not_use_in_prod
 
 export interface AuthRequest extends Request {
     user?: any;
-    body: Record<string, any>;
 }
 
 export const verifyToken = (req: AuthRequest, res: Response, next: NextFunction): any => {
