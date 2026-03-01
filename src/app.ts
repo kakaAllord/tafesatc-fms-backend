@@ -26,7 +26,7 @@ app.use(cors({
     "https://tafesatcfamily.vercel.app",
     "https://fmstafesatc.vercel.app"
   ],
-  methods: ["GET","POST","PUT","DELETE"],
+  methods: ["GET","POST","PUT","DELETE", "PATCH"],
   credentials: true
 }));
 
