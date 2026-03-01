@@ -4,7 +4,7 @@ import express, { Request, Response } from 'express';
 
 
 //Routes Imports
-import familyRoutes from '../src/routes/Family'
+import familyRoutes from './routes/Family'
 import courseRoutes from './routes/Course';
 import authRoutes from './routes/auth';
 import userRoutes from './routes/User';
