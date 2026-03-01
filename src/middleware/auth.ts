@@ -10,7 +10,7 @@ export interface AuthRequest extends Request {
 }
 
 export const verifyToken = (req: AuthRequest, res: Response, next: NextFunction): any => {
-    const token = req.header('Authorization')?.replace('Bearer ', '');
+    const token = (req as any).header('Authorization')?.replace('Bearer ', '');
 
     if (!token) {
         return res.status(401).json(CreateResponse(false, null, "Access Denied"));
