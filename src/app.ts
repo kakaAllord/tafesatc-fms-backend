@@ -26,10 +26,11 @@ app.use(cors({
     "https://tafesatcfamily.vercel.app",
     "https://fmstafesatc.vercel.app"
   ],
+  methods: ["GET","POST","PUT","DELETE"],
   credentials: true
 }));
 
-app.options('*', cors());
+
 
 // testing the server
 app.get("/ping", (req: Request, res: Response) => {
